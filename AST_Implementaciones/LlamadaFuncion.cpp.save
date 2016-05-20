@@ -1,0 +1,66 @@
+#include "../AST_Tipos.h"
+
+LlamadaFuncion::LlamadaFuncion ( Identificador* id ) {
+	this->id = id;
+}
+LlamadaFuncion::~LlamadaFuncion() {
+	delete id;
+	for ( Expresion* p : parametros ) {
+		delete p;
+	}
+}
+
+TipoDato LlamadaFuncion::analizarTipo() {
+	vector<TipoDato> tiposParametros;
+	for ( Expresion* p : parametros ) {
+		tiposParametros.push_back ( p->analizarTipo() );
+	}
+
+	return TablaSimbolos::instance()->existe ( id->simbolo, tiposParametros );
+}
+
+string LlamadaFuncion::toString() {
+	stringstream ss;
+
+	ss << "<LLAMADA_FUNCION>" << endl;
+	ss << id->toString( );
+	for ( Expresion* p : parametros ) {
+		ss << p->toString();
+	}
+	ss << "</LLAMADA_FUNCION>" << endl;
+
+	return ss.str();
+}
+
+string LlamadaFuncion::generarCodigo() {
+    string regsParam[] = {"%edi", "%esi", "%edx", "%ecx", "%r8d", "%r9d"};
+	stringstream ss;
+	vector<string> temp = {"%r10d", "%r11d", "%r12d", "%r13d", "%r14d", "%r15d"};
+	stack<string> usados;
+    auto itTemp = temp.begin();
+
+    for (auto it = parametros.rbegin(); it != parametros.rend(); ++it){
+        ss << TABULADOR << "pushl " << TABULADOR << (*itTemp) << endl;
+        ss <<(*it)->generarCodigo();
+        ss << TABULADOR << "movl" << TABULADOR << "%eax," << TABULADOR << (*itTemp) << endl;
+        usados.push(*itTemp);
+        itTemp++;
+    }
+    
+    ss << "#MOVER TEMPORALES"<<endl;
+    ss << TABULADOR << "call" << TABULADOR << id->simbolo << endl;
+    while(!usados.empty()){
+        ss << TABULADOR << "popl" << TABULADOR << usados.top() << endl;
+        usados.pop();
+    }
+
+	return ss.str();
+}
+
+bool LlamadaFuncion::analizarTipoConstante() {
+	return false;
+}
+
+int LlamadaFuncion::evaluar() {
+	return 0;
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AnalizadorLexico_STDL" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/AnalizadorLexico_STDL" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/AnalizadorLexico_STDL" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="AST_Implementaciones/And.cpp" />
+		<Unit filename="AST_Implementaciones/Asignacion.cpp" />
+		<Unit filename="AST_Implementaciones/Break.cpp" />
+		<Unit filename="AST_Implementaciones/Continue.cpp" />
+		<Unit filename="AST_Implementaciones/Definicion.cpp" />
+		<Unit filename="AST_Implementaciones/DefinicionFuncion.cpp" />
+		<Unit filename="AST_Implementaciones/DefinicionVariable.cpp" />
+		<Unit filename="AST_Implementaciones/Diferente.cpp" />
+		<Unit filename="AST_Implementaciones/Division.cpp" />
+		<Unit filename="AST_Implementaciones/DoWhile.cpp" />
+		<Unit filename="AST_Implementaciones/Entero.cpp" />
+		<Unit filename="AST_Implementaciones/Expresion.cpp" />
+		<Unit filename="AST_Implementaciones/For.cpp" />
+		<Unit filename="AST_Implementaciones/Identificador.cpp" />
+		<Unit filename="AST_Implementaciones/If.cpp" />
+		<Unit filename="AST_Implementaciones/Igual.cpp" />
+		<Unit filename="AST_Implementaciones/LlamadaFuncion.cpp" />
+		<Unit filename="AST_Implementaciones/Mayor.cpp" />
+		<Unit filename="AST_Implementaciones/MayorIgual.cpp" />
+		<Unit filename="AST_Implementaciones/Menor.cpp" />
+		<Unit filename="AST_Implementaciones/MenorIgual.cpp" />
+		<Unit filename="AST_Implementaciones/Modulo.cpp" />
+		<Unit filename="AST_Implementaciones/Multiplicacion.cpp" />
+		<Unit filename="AST_Implementaciones/Or.cpp" />
+		<Unit filename="AST_Implementaciones/Parametro.cpp" />
+		<Unit filename="AST_Implementaciones/PosfijoDecremento.cpp" />
+		<Unit filename="AST_Implementaciones/PosfijoIncremento.cpp" />
+		<Unit filename="AST_Implementaciones/ProposicionCompuesta.cpp" />
+		<Unit filename="AST_Implementaciones/Resta.cpp" />
+		<Unit filename="AST_Implementaciones/Return.cpp" />
+		<Unit filename="AST_Implementaciones/Suma.cpp" />
+		<Unit filename="AST_Implementaciones/Tipo.cpp" />
+		<Unit filename="AST_Implementaciones/UnarioDecremento.cpp" />
+		<Unit filename="AST_Implementaciones/UnarioIncremento.cpp" />
+		<Unit filename="AST_Implementaciones/UnarioNegativo.cpp" />
+		<Unit filename="AST_Implementaciones/UnarioNot.cpp" />
+		<Unit filename="AST_Implementaciones/UnarioPositivo.cpp" />
+		<Unit filename="AST_Implementaciones/UnidadTraduccion.cpp" />
+		<Unit filename="AST_Implementaciones/While.cpp" />
+		<Unit filename="AST_Tipos.cpp" />
+		<Unit filename="AST_Tipos.h" />
+		<Unit filename="Constantes.h" />
+		<Unit filename="Lexico.cpp" />
+		<Unit filename="Lexico.h" />
+		<Unit filename="ManejadorVariables.cpp" />
+		<Unit filename="ManejadorVariables.h" />
+		<Unit filename="Sintactico.cpp" />
+		<Unit filename="Sintactico.h" />
+		<Unit filename="TablaSimbolos.cpp" />
+		<Unit filename="TablaSimbolos.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

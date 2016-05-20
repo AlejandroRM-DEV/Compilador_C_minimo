@@ -1,0 +1,30 @@
+#include "..
+ProposicionCompuesta( vector<Nodo*> cuerpo ) {
+        this->cuerpo = cuerpo;
+    }
+
+    ~ProposicionCompuesta() {
+        for( Nodo* nodo : cuerpo ) {
+            delete nodo;
+        }
+    }
+
+    TipoDato analizarTipo() {
+        for( Nodo* n : cuerpo ) {
+            if( n->analizarTipo( ) == T_ERROR ) {
+                return T_ERROR;
+            }
+        }
+        return T_VACIO;
+    }
+
+    string toString() {
+        stringstream ss;
+
+        ss << "<PROPOSICION_COMPUESTA>" << endl;
+        for( Nodo* n : cuerpo ) {
+            ss << n->toString();
+        }
+        ss << "</PROPOSICION_COMPUESTA>" << endl;
+        return ss.str();
+    }

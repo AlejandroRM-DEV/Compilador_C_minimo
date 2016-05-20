@@ -1,0 +1,32 @@
+#include "../AST_Tipos.h"
+
+bool Return::permiteExpresion = true;
+
+Return::Return() {
+    simbolo = "return";
+    exp = nullptr;
+}
+
+Return::~Return() {
+    if( exp != nullptr ) {
+        delete exp;
+    }
+}
+
+TipoDato Return::analizarTipo() {
+    if( exp != nullptr ) {
+            
+        return exp->analizarTipo();
+    }
+    return T_VACIO;
+}
+
+string Return::toString() {
+    stringstream ss;
+    ss << "<RETURN>" << endl;
+    if( exp != nullptr ) {
+        ss << exp->toString( );
+    }
+    ss << " < / RETURN > " << endl;
+    return ss.str();
+}

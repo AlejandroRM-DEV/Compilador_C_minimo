@@ -1,0 +1,38 @@
+#include "../AST_Tipos.h"
+
+PosfijoDecremento::PosfijoDecremento( Identificador* exp ) {
+    this->exp = exp;
+}
+
+PosfijoDecremento::~PosfijoDecremento( ) {
+    delete exp;
+}
+
+TipoDato PosfijoDecremento::analizarTipo() {
+    return exp->analizarTipo();
+}
+
+string PosfijoDecremento::toString() {
+    stringstream ss;
+    ss << "<POSFIJO_DECREMENTO>" << endl;
+
+    if( exp != nullptr ) {
+        ss << exp->toString( );
+    }
+    ss << "</POSFIJO_DECREMENTO>" << endl;
+    return ss.str();
+}
+
+string PosfijoDecremento::generarCodigo(){
+    stringstream ss;
+
+    return ss.str();
+}
+
+bool PosfijoDecremento::analizarTipoConstante() {
+	return false;
+}
+
+int PosfijoDecremento::evaluar() {
+	return 0;
+}
